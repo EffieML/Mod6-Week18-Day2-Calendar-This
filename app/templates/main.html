@@ -6,17 +6,26 @@
 </head>
 
 <body>
-  <form method="post" action="/">
+  <form method="post" action="">
     <!-- use your form variable here -->
     <!-- to make your form           -->
+    <p>{{date}}</p>
     {{ form.csrf_token }}
     <p> {{ form.name.label }} {{ form.name() }} </p>
     <p> {{ form.start_date.label }} {{ form.start_date() }} </p>
     <p> {{ form.start_time.label }} {{ form.start_time() }} </p>
     <p> {{ form.end_date.label }} {{ form.end_date() }} </p>
     <p> {{ form.end_time.label }} {{ form.end_time() }} </p>
+    {% if form.end_time.errors %}
+    <ul class="errors">
+      {% for error in form.end_time.errors %}
+      <li>{{ error }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
     <p> {{ form.description.label }} {{ form.description() }} </p>
     <p> {{ form.private.label }} {{ form.private() }} </p>
+
     <p> {{ form.submit.label }} {{ form.submit() }} </p>
 
   </form>
