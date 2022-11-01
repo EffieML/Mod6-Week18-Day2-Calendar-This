@@ -15,7 +15,7 @@ def main():
     d = datetime.now()
     return redirect(url_for(".daily", year=d.year, month=d.month, day=d.day))
 
-@bp.route("/<int:year>/<int:month>/<int:day>")
+@bp.route("/<int:year>/<int:month>/<int:day>", methods=["GET", "POST"])
 # @bp.route('/<year>/<month>/<day>')
 def daily(year= 1, month= 1, day=1):
     current= datetime(year=year, month=month, day=day)

@@ -10,7 +10,7 @@ class AppointmentForm(FlaskForm):
      end =datetime.combine(form.end_date.data, form.end_time.data)
      if (start>end):
         raise ValidationError("End date/time must come after start date/time ")
-     if(start.date!= end.date):
+     if(form.start_date.data!=form.end_date.data):
         raise ValidationError("appt must start/end on same day")
 
 
