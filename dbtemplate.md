@@ -11,3 +11,8 @@ INSERT INTO appointments (name, start_datetime, end_datetime, description, priva
 VALUES
 ('My appointment', '2022-11-11 14:00:00', '2022-11-11 15:00:00',
  'An appointment for me', false);
+
+
+FLASK_ENV=development
+SECRET_KEY=SADFSGIOKFDJBGOIDFJM
+DB_FILE=dev.db
