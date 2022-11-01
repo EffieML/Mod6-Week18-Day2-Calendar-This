@@ -2,30 +2,46 @@
 <html>
 
 <head>
-    <title>Calendar this!</title>
+  <title>Calendar this!</title>
 </head>
 
 <body>
-    <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Start</th>
-            <th>End</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- loop here to create rows -->
-          <!-- use strftime to format date objects -->
-          <!-- loop here to create rows -->
-          {% for item in rows %}
-          <!-- {startObj= datetime.strptime({{item[2]}}, '%Y-%m-%d %H:%M:%S')} -->
-          <th>{{item[1]}}</th>
-          <th>{{item[2][11:16]}}</th>
-          <th>{{item[3][11:16]}}</th>
-          {% endfor %}
-        </tbody>
-      </table>
+  <form method="post" action="/">
+    <!-- use your form variable here -->
+    <!-- to make your form           -->
+    {{ form.csrf_token }}
+    <p> {{ form.name.label }} {{ form.name() }} </p>
+    <p> {{ form.start_date.label }} {{ form.start_date() }} </p>
+    <p> {{ form.start_time.label }} {{ form.start_time() }} </p>
+    <p> {{ form.end_date.label }} {{ form.end_date() }} </p>
+    <p> {{ form.end_time.label }} {{ form.end_time() }} </p>
+    <p> {{ form.description.label }} {{ form.description() }} </p>
+    <p> {{ form.private.label }} {{ form.private() }} </p>
+    <p> {{ form.submit.label }} {{ form.submit() }} </p>
+
+  </form>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Start</th>
+        <th>End</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- loop here to create rows -->
+      <!-- use strftime to format date objects -->
+      <!-- loop here to create rows -->
+      {% for item in rows %}
+      <!-- {startObj= datetime.strptime({{item[2]}}, '%Y-%m-%d %H:%M:%S')} -->
+      <tr>
+        <th>{{item[1]}}</th>
+        <th>{{item[2][11:16]}}</th>
+        <th>{{item[3][11:16]}}</th>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 
 </body>
 
